@@ -11,13 +11,12 @@ Add a system call “pstree” in Android OS
   extract into ~/android or /usr/lib/android/
   type ndk-build -v to check
 4. android shell
-4. android shell
 	http://www.cs.sjtu.edu.cn/~fwu/teaching/res/androidkernel.tar.gz
 	extract into the usr folder
 
 
 **********steps**************
-1.	Modify the environment variables in ~/.bashrc
+1. Modify the environment variables in ~/.bashrc
   export PATH=${PATH}:/home/lanouyu/Downloads/android-sdk-linux/tools
   export PATH=${PATH}:/home/lanouyu/Downloads/android-sdk-linux/platform-tools
 
@@ -29,6 +28,10 @@ Add a system call “pstree” in Android OS
   export PATH=${PATH}:~/android
   
   export PATH=${PATH}:/home/lanouyu/Downloads/android-ndk-linux/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin
-2.	Start AVD with the new shell
+2. Start AVD with the new shell
   ~/Downloads/android-sdk-linux/tools/emulator -avd OsPrj-5140309001 -kernel ~/kernel/goldfish/arch/arm/boot/zImage -show-kernel
   this process maybe very slow, please wait patiently.
+3. type make in ptree folder, then we get a file ptree.ko, which is our module
+4. upload ptree.ko file to AVD
+
+5. 
