@@ -44,12 +44,36 @@ Add a system call “pstree” in Android OS
   export PATH=${PATH}:/home/lanouyu/Downloads/android-ndk-linux/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin
 2. Start AVD with the new shell
 
+  please install 32-bit lib first:
+  
+  sudo apt-get install libc6:i386 libgcc1:i386 gcc-4.6-base:i386 libstdc++5:i386 libstdc++6:i386
+  
+  sudo apt-get install lib32stdc++6
+
+  then start it:
+
   ~/Downloads/android-sdk-linux/tools/emulator -avd OsPrj-5140309001 -kernel ~/kernel/goldfish/arch/arm/boot/zImage -show-kernel
   
   this process maybe very slow, please wait patiently.
+  
+  to check AVD status: adb devices
 
 3. type make in ptree folder, then we get a file ptree.ko, which is our module
 
-4. upload ptree.ko file to AVD
+  make
 
-5. 
+4. upload ptree.ko file to AVD
+ 
+  adb push ptree.ko /data/misc
+
+5. go to adb shell and install mod
+
+  adb shell
+  
+  cd data/misc
+  
+  insmod ptree.ko
+  
+  lsmod (to check)
+
+6. 
