@@ -76,4 +76,14 @@ Add a system call “pstree” in Android OS
   
   lsmod (to check)
 
-6. 
+6. test
+  cd ../test/jni
+
+  ndk-build 
+  (The executable file is in test/libs/armeabi)
+  
+  adb push ../libs/armeabi/ptree /data/misc
+  
+  ./ptree
+  
+  ******************OK**************
